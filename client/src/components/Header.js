@@ -3,14 +3,20 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
-    renderContent() {
+    renderAuth() {
         switch(this.props.auth){
             case null:
                 return;
             case false:
                 return <li className="nav-item"><a href="/auth/google" className="nav-link" >Login with Google</a></li>
             default:
-                return <li className="nav-item"><a href="/api/logout" className="nav-link" >Logout</a></li>
+                return [
+                    <li className="nav-item"><a href="#" className="nav-link" >Calendar</a></li>,
+                    <li className="nav-item"><a href="#" className="nav-link" >Reminders</a></li>,
+                    <li className="nav-item"><a href="#" className="nav-link" >Notes</a></li>,
+                    <li className="nav-item"><a href="#" className="nav-link" >Shopping List</a></li>, 
+                    <li className="nav-item"><a href="/api/logout" className="nav-link" >Logout</a></li>,
+                ]
         }
     }
     render(){
@@ -23,7 +29,8 @@ class Header extends Component {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
-                        {this.renderContent()}
+                        
+                        {this.renderAuth()}
                     </ul>
                 </div>
             </nav>
