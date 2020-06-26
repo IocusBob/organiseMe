@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import Reminders from './Reminders';
+import Reminders from './reminders/Reminders';
 
 class Header extends Component {
     renderContent() {

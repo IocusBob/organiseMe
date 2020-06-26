@@ -4,7 +4,7 @@ module.exports = (app) => {
 
     app.get('/auth/google',
         passport.authenticate('google', {
-            scope: ['profile', 'email']
+            scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar']
         })
     );
 
@@ -15,11 +15,11 @@ module.exports = (app) => {
     });
 
     app.get('/api/current_user', (req, res) =>{
-        res.send(req.user)
+        res.send(req.user);
     });
 
     app.get('/api/logout', (req, res)=>{
         req.logout();
-        res.redirect('/')
+        res.redirect('/');
     });
 };

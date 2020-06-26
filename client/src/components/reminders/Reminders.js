@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchTodos } from '../actions'
+import { fetchTodos } from '../../actions'
 
 import Reminder from './Reminder';
 
