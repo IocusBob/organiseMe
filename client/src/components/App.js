@@ -6,6 +6,9 @@ import * as actions from '../actions';
 import Header from './Header';
 import Home from './Home';
 
+import ShoppingItemList from './shoppingItem/ShoppingItemList';
+import ShoppingItemCreate from './shoppingItem/ShoppingItemCreate';
+
 class App extends Component {
     componentDidMount(){
         this.props.fetchUser()
@@ -17,6 +20,8 @@ class App extends Component {
                     <div>
                         <Header />
                         <Route exact path='/' component={Home} />
+                        <Route exact path='/ShoppingList' component={ShoppingItemList} />
+                        <Route exact path='/ShoppingItemNew' component={ShoppingItemCreate} />
                     </div>
                 </BrowserRouter>
             </div>
