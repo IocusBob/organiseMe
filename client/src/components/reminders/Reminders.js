@@ -13,13 +13,12 @@ class Reminders extends Component {
     }
 
     renderToDos = () => {
-        return this.state.reminders.map(reminder => {
-            return <Reminder toDo={reminder} />
+        return this.state.reminders.map((reminder, index) => {
+            return <Reminder key={index} toDo={reminder} />
         });    
     }
     
     render(){
-        console.log(this.props.todos)
         return(
             <div>
                 <h4>Here are your reminders/todos for today:</h4>

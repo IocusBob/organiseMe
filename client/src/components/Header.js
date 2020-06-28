@@ -11,11 +11,11 @@ class Header extends Component {
                 return <li className="nav-item"><a href="/auth/google" className="nav-link" >Login with Google</a></li>
             default:
                 return [
-                    <li className="nav-item"><a href="#" className="nav-link" >Calendar</a></li>,
-                    <li className="nav-item"><a href="#" className="nav-link" >Reminders</a></li>,
-                    <li className="nav-item"><a href="#" className="nav-link" >Notes</a></li>,
-                    <li className="nav-item"><Link to="ShoppingList" className="nav-link" >Shopping List</Link></li>, 
-                    <li className="nav-item"><a href="/api/logout" className="nav-link" >Logout</a></li>,
+                    <li key="1" className="nav-item"><a href="#" className="nav-link" >Calendar</a></li>,
+                    <li key="2" className="nav-item"><a href="#" className="nav-link" >Reminders</a></li>,
+                    <li key="3" className="nav-item"><a href="#" className="nav-link" >Notes</a></li>,
+                    <li key="4" className="nav-item"><Link to="ShoppingList" className="nav-link" >Shopping List</Link></li>, 
+                    <li key="5" className="nav-item"><a href="/api/logout" className="nav-link" >Logout</a></li>,
                 ]
         }
     }

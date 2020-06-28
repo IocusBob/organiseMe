@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Field, reduxForm }from 'redux-form'
+import { connect } from 'react-redux';
+
+import { createShoppingItem } from '../../actions';
 
 class ShoppingItemCreate extends Component {
 
@@ -24,13 +27,12 @@ class ShoppingItemCreate extends Component {
         )
     }
 
-    onSubmit(formValues){
-        console.log(formValues)
+    onSubmit = (formValues) => {
+        this.props.createShoppingItem(formValues);
     }
 
     render(){
         return(
-            
             <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <Field name="shoppingItemQuantity" component={this.renderInput} label="Quantity" type="number" />
                 <Field name="shoppingItemName" component={this.renderInput} label="Shopping Item" type="text" />
@@ -51,4 +53,6 @@ const validate = (formValues) =>{
     return errors
 }
 
-export default reduxForm({form: 'ShoppingItemCreate', validate})(ShoppingItemCreate)
+const formWrapped = reduxForm({form: 'ShoppingItemCreate', validate})(ShoppingItemCreate);
+
+export default connect(null, {createShoppingItem})(formWrapped);

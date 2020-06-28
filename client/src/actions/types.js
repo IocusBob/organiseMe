@@ -1,2 +1,3 @@
 export const FETCH_USER = 'FETCH_USER'
 export const FETCH_TODOS = 'FETCH_TODOS'
+export const CREATE_SHOPPING_ITEM = 'CREATE_SHOPPING_ITEM'
