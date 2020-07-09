@@ -34,8 +34,8 @@ class ShoppingItemCreate extends Component {
     render(){
         return(
             <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                <Field name="shoppingItemQuantity" component={this.renderInput} label="Quantity" type="number" />
                 <Field name="shoppingItemName" component={this.renderInput} label="Shopping Item" type="text" />
+                <Field name="shoppingItemQuantity" component={this.renderInput} label="Quantity" type="number" />
                 <button className="btn btn-primary" type="submit">Submit!</button>
             </form>
         )

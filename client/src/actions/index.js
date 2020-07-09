@@ -13,9 +13,8 @@ export const fetchTodos = () => async dispatch => {
     dispatch({type: FETCH_TODOS, payload: res.data})
 };
 
-export const createShoppingItem = (formValues) => dispatch => {
-    // Needs to send formValues to server
-    const response = {data: "done"};
-    dispatch({type: CREATE_SHOPPING_ITEM, payload: response.data})
+export const createShoppingItem = (formValues) => async dispatch => {
+    const res = await axios.post('/api/shoppingItem/create', formValues)
     history.push('/');
+    dispatch({type: CREATE_SHOPPING_ITEM, payload: res.data})
 };
