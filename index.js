@@ -11,7 +11,10 @@ require('./models/ShoppingItems');
 require('./services/passport');
 
 var app = express();
-mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+});
 
 app.use(bodyParser.json())
 
