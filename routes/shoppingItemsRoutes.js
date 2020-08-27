@@ -8,6 +8,12 @@ module.exports = (app) => {
         res.send(shoppingList);
     });
 
+    app.post('/api/shoppingItem/updateChecked', async (req, res) => {
+        const {id, checked} = req.body
+        await ShoppingItem.updateOne({ _id: id }, {checked: checked});
+        res.redirect('/api/shoppingItems');
+    });
+
 
     app.post('/api/shoppingItem/create', async (req, res) => {
         const  {shoppingItemName, shoppingItemQuantity } = req.body;
