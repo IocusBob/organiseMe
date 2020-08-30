@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import ShoppingItemCreate from './ShoppingItemCreate';
 import { fetchShoppingItems, updateShoppingItemChecked } from '../../actions';
 
 
@@ -43,6 +45,7 @@ class ShoppingItemList extends Component {
                             <span className="col-3 font-weight-bolder">Checked</span>
                         </li>
                         {this.renderShoppingList()}
+                        <li className="list-group-item"><ShoppingItemCreate /></li>
                     </ul>
                     <Link to="/ShoppingItemNew">Create New Item</Link>
                 </div>
@@ -51,8 +54,9 @@ class ShoppingItemList extends Component {
     }
 }
 
-function mapStateToProps({shoppingList}){
-    return { shoppingList };
+function mapStateToProps(state){
+    console.log(state);
+    return { shoppingList: state.shoppingList };
 }
 
 export default connect(mapStateToProps, {fetchShoppingItems, updateShoppingItemChecked})(ShoppingItemList)

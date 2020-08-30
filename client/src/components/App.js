@@ -23,7 +23,6 @@ class App extends Component {
                         <Header />
                         <Route exact path='/' component={Home} />
                         <Route exact path='/ShoppingList' component={ShoppingItemList} />
-                        <Route exact path='/ShoppingItemNew' component={ShoppingItemCreate} />
                     </div>
                 </Router>
             </div>

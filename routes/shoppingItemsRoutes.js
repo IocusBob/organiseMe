@@ -25,6 +25,6 @@ module.exports = (app) => {
             _user: req.user.id,
         });
         await shoppingItem.save();
-        res.send(req.user);
+        res.redirect('/api/shoppingItems');
     });
 };

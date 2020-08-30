@@ -16,11 +16,11 @@ class ShoppingItemCreate extends Component {
         }
     }
 
-    renderInput = ({input, label, type, meta}) =>{
+    renderInput = ({input, customClass, type, meta}) =>{
+        const formClassName = `form-group ${customClass}`;
         const fieldClassName = `form-control ${meta.error && meta.touched ? 'is-invalid' : ''}`
         return(
-            <div className="form-group">
-                <label>{label}</label>
+            <div className={formClassName}>
                 <input className={fieldClassName} type={type} {...input} autoComplete="off" />
                 {this.renderErrorMessage(meta)}
             </div>
@@ -33,10 +33,10 @@ class ShoppingItemCreate extends Component {
 
     render(){
         return(
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                <Field name="shoppingItemName" component={this.renderInput} label="Shopping Item" type="text" />
-                <Field name="shoppingItemQuantity" component={this.renderInput} label="Quantity" type="number" />
-                <button className="btn btn-primary" type="submit">Submit!</button>
+            <form className="d-flex" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+                <Field name="shoppingItemQuantity" component={this.renderInput} customClass="col-3" type="number" />
+                <Field name="shoppingItemName" component={this.renderInput} customClass="col-6" type="text" />
+                <button className="btn btn-primary col-3" type="submit">Submit!</button>
             </form>
         )
     }
