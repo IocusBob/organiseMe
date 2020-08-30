@@ -3,21 +3,22 @@ import {Field, reduxForm, reset }from 'redux-form'
 import { connect } from 'react-redux';
 
 import { createShoppingItem } from '../../actions';
+import './shoppingItemCreate.css'
 
 class ShoppingItemCreate extends Component {
 
     renderErrorMessage = ({touched, error}) =>{
         if(touched && error){
             return(
-                <div className="mt-2 mb-2">
-                    <p className="text-danger" >{error}</p>
+                <div className="mt-2 mb-2 text-danger">
+                    {error}
                 </div>
             )
         }
     }
 
     renderInput = ({input, customClass, type, meta}) =>{
-        const formClassName = `form-group ${customClass}`;
+        const formClassName = `${customClass}`;
         const fieldClassName = `form-control ${meta.error && meta.touched ? 'is-invalid' : ''}`
         return(
             <div className={formClassName}>
@@ -38,7 +39,7 @@ class ShoppingItemCreate extends Component {
             <form className="d-flex" onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <Field name="shoppingItemQuantity" component={this.renderInput} customClass="col-3" type="number" />
                 <Field name="shoppingItemName" component={this.renderInput} customClass="col-6" type="text" />
-                <button className="btn btn-primary col-3" type="submit">Submit!</button>
+                <button className="btn btn-primary col-3 shoppingListButton" type="submit">Submit!</button>
             </form>
         )
     }

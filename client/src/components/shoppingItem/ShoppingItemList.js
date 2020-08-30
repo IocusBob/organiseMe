@@ -49,7 +49,6 @@ class ShoppingItemList extends Component {
                         {this.renderShoppingList()}
                         <li className="list-group-item"><ShoppingItemCreate /></li>
                     </ul>
-                    <Link to="/ShoppingItemNew">Create New Item</Link>
                 </div>
             </div>
         )
