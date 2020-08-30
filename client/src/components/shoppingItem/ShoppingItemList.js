@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import ShoppingItemCreate from './ShoppingItemCreate';
+import ShoppingItemDelete from './ShoppingItemDelete';
 import { fetchShoppingItems, updateShoppingItemChecked } from '../../actions';
 
 
@@ -49,6 +50,7 @@ class ShoppingItemList extends Component {
                         {this.renderShoppingList()}
                         <li className="list-group-item"><ShoppingItemCreate /></li>
                     </ul>
+                    <ShoppingItemDelete shoppingList={this.props.shoppingList} />
                 </div>
             </div>
         )

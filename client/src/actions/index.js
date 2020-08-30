@@ -30,3 +30,8 @@ export const fetchShoppingItems = () => async dispatch => {
     const res = await axios.get('/api/shoppingItems');
     dispatch({type: FETCH_SHOPPING_ITEMS, payload: res.data});
 };
+
+export const deleteShoppingItems = (shoppingItemsArray) => async dispatch => {
+    const res = await axios.post('/api/shoppingItems/delete', {shoppingList: shoppingItemsArray});
+    dispatch({type: FETCH_SHOPPING_ITEMS, payload: res.data});
+};
