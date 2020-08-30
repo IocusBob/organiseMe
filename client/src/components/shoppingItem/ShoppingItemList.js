@@ -28,7 +28,9 @@ class ShoppingItemList extends Component {
                             <span className="col-6">{shoppingItem.item}</span>
                         )
                     }
-                    <span className="col-3"><input type="checkbox" defaultChecked={ shoppingItem.checked } name={shoppingItem._id} onChange={this.handleChangeChk}/></span>
+                    <span className="col-3">
+                        <input type="checkbox" defaultChecked={ shoppingItem.checked } name={shoppingItem._id} onChange={this.handleChangeChk}/>
+                    </span>
                 </li>
             )
         });
@@ -54,9 +56,8 @@ class ShoppingItemList extends Component {
     }
 }
 
-function mapStateToProps(state){
-    console.log(state);
-    return { shoppingList: state.shoppingList };
+function mapStateToProps({shoppingList}){
+    return { shoppingList };
 }
 
 export default connect(mapStateToProps, {fetchShoppingItems, updateShoppingItemChecked})(ShoppingItemList)

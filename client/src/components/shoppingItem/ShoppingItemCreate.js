@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Field, reduxForm }from 'redux-form'
+import {Field, reduxForm, reset }from 'redux-form'
 import { connect } from 'react-redux';
 
 import { createShoppingItem } from '../../actions';
@@ -31,6 +31,8 @@ class ShoppingItemCreate extends Component {
         this.props.createShoppingItem(formValues);
     }
 
+    
+
     render(){
         return(
             <form className="d-flex" onSubmit={this.props.handleSubmit(this.onSubmit)}>
@@ -41,6 +43,7 @@ class ShoppingItemCreate extends Component {
         )
     }
 }
+const afterSubmit = (result, dispatch) => dispatch(reset('ShoppingItemCreate'));
 
 const validate = (formValues) =>{
     const errors = {};
@@ -53,6 +56,6 @@ const validate = (formValues) =>{
     return errors
 }
 
-const formWrapped = reduxForm({form: 'ShoppingItemCreate', validate})(ShoppingItemCreate);
+const formWrapped = reduxForm({form: 'ShoppingItemCreate', onSubmitSuccess: afterSubmit,validate})(ShoppingItemCreate);
 
 export default connect(null, {createShoppingItem})(formWrapped);
